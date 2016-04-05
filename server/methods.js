@@ -1,0 +1,1 @@
+import { Meteor } from 'meteor/meteor';import Hanzi from '../collections/hanzi.js';Meteor.methods({    searchRhyme(text, isOften) {        return result = Hanzi.find({rhyme: text, isOften: isOften}, {fields: {zm: 0}}).fetch();    }});
