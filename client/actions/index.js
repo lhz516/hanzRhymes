@@ -1,0 +1,1 @@
+/* * action creators */export function setRhyme(text) {    return { type: 'SET_RHYME', text }}export function setLoading(isLoading) {    return { type: 'SET_LOADING', isLoading }}export function setCharacters(data) {    return { type: 'SET_CHARACTERS', data }}export function setVisibilityFilter(filter) {    return { type: 'SET_VISIBILITY_FILTER', filter }}

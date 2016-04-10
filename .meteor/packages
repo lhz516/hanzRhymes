@@ -20,3 +20,5 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 semantic:ui
 flemay:less-autoprefixer
+react-meteor-data
+session

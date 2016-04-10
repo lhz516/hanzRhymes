@@ -1,1 +1,1 @@
-import { Meteor } from 'meteor/meteor';import Hanzi from '../collections/hanzi.js';Meteor.methods({    searchRhyme(text, isOften) {        return result = Hanzi.find({rhyme: text, isOften: isOften}, {fields: {zm: 0}}).fetch();    }});
+import { Meteor } from 'meteor/meteor';import Hanzi from '../collections/hanzi.js';Meteor.methods({    searchRhyme(text, filter) {        let isOften = false;        if(filter == 'SHOW_OFTEN') {            isOften = true;        }        return Hanzi.find({rhyme: text, isOften: isOften}, {fields: {hz: 1}}).fetch();    }});
