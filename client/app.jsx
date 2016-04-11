@@ -8,9 +8,14 @@ import { Meteor } from 'meteor/meteor';
 import Layout from './components/layout.jsx';
 import HomePage from './container/home.jsx';
 import About from './components/about.jsx';
-import * as reducers from './reducers/index.js';
+import { setRhyme } from './actions'
+import * as reducers from './reducers';
+import { searchRhyme } from './container/home.jsx';
 
 // Add the reducer to your store on the `routing` key
+
+let recentRhymes = JSON.parse(localStorage.getItem('hr_rhymes'));
+
 export const store = createStore(
     combineReducers({
         ...reducers,
@@ -18,7 +23,8 @@ export const store = createStore(
     }),
     {
         visibilityFilter: 'SHOW_OFTEN',
-        rhyme: ''
+        rhyme: recentRhymes ? recentRhymes[recentRhymes.length - 1] : '',
+        recentRhymes: recentRhymes || []
     }
 );
 
@@ -38,4 +44,9 @@ const routes = () => (
 
 Meteor.startup(() => {
     render(routes(), document.getElementById('app-container'));
+    let initState = store.getState();
+    if(initState.rhyme) {
+        store.dispatch(setRhyme(initState.rhyme));
+        searchRhyme(initState.rhyme, initState.isOften);
+    }
 });
