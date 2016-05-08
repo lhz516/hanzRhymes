@@ -1,3 +1,5 @@
 import { Mongo } from 'meteor/mongo';
 
-export default Hanzi = new Mongo.Collection('hanzi');
+const Hanzi = new Mongo.Collection('hanzi');
+
+export default Hanzi;

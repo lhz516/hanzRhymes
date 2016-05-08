@@ -6,11 +6,11 @@ import { Router, Route, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { Meteor } from 'meteor/meteor';
 import Layout from './components/layout.jsx';
-import HomePage from './container/home.jsx';
+import HomePage from './container/home.js';
 import About from './components/about.jsx';
 import { setRhyme } from './actions'
 import * as reducers from './reducers';
-import { searchRhyme } from './container/home.jsx';
+import { searchRhyme } from './container/home.js';
 
 // Add the reducer to your store on the `routing` key
 
@@ -47,6 +47,6 @@ Meteor.startup(() => {
     let initState = store.getState();
     if(initState.rhyme) {
         store.dispatch(setRhyme(initState.rhyme));
-        searchRhyme(initState.rhyme, initState.isOften);
+        searchRhyme(initState.rhyme, initState.visibilityFilter);
     }
 });
