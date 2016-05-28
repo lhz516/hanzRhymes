@@ -37,7 +37,8 @@ export default class Home extends React.Component {
                   autoCapitalize="none"
                   autoCorrect="off"
                   value={this.props.rhyme}
-                  placeholder="请填写韵母"
+                  maxLength="4"
+                  placeholder="韵母"
                   onChange={(e) => this.props.setRhyme(e.target.value)}
                   type="text"
                 />
@@ -74,7 +75,7 @@ export default class Home extends React.Component {
               {
                 this.props.characters.toString() !== ''
                   ? <p>共找到{this.props.characters.length}个韵脚为"{this.props.rhyme}"的汉字</p>
-                  : this.props.rhyme !== ''
+                  : this.props.isLoading
                     ? <p>正在查询...</p>
                     : <p />
               }

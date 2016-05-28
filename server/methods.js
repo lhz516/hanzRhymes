@@ -10,7 +10,7 @@ Meteor.methods({
       isOften = true;
     }
     const result = Hanzi.find({ rhyme: text, isOften }, { fields: { hz: 1 } }).fetch();
-    if (result !== '') {
+    if (result.toString() !== '') {
       return {
         isValid: true,
         rhyme: text,
