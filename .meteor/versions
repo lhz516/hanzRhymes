@@ -59,6 +59,7 @@ semantic:ui@2.2.1
 semantic:ui-data@2.2.1
 session@1.1.6
 shell-server@0.2.1
+simple:json-routes@2.1.0
 spacebars@1.0.12
 spacebars-compiler@1.0.12
 standard-minifier-css@1.2.0

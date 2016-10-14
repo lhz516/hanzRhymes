@@ -24,3 +24,4 @@ flemay:less-autoprefixer
 react-meteor-data
 session@1.1.6
 shell-server
+simple:json-routes
